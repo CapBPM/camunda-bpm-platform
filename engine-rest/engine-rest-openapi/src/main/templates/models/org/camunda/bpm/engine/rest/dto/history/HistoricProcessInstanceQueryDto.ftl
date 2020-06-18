@@ -114,7 +114,7 @@
         format = "date-time"
         desc = "Restrict to instances that were started before the given date.
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "startedAfter"
@@ -122,7 +122,7 @@
         format = "date-time"
         desc = "Restrict to instances that were started after the given date.
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "finishedBefore"
@@ -130,7 +130,7 @@
         format = "date-time"
         desc = "Restrict to instances that were finished before the given date.
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "finishedAfter"
@@ -138,7 +138,7 @@
         format = "date-time"
         desc = "Restrict to instances that were finished after the given date.
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "executedActivityAfter"
@@ -146,7 +146,7 @@
         format = "date-time"
         desc = "Restrict to instances that executed an activity after the given date (inclusive).
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "executedActivityBefore"
@@ -154,7 +154,7 @@
         format = "date-time"
         desc = "Restrict to instances that executed an activity before the given date (inclusive).
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "executedJobAfter"
@@ -162,7 +162,7 @@
         format = "date-time"
         desc = "Restrict to instances that executed an job after the given date (inclusive).
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "executedJobBefore"
@@ -170,7 +170,7 @@
         format = "date-time"
         desc = "Restrict to instances that executed an job before the given date (inclusive).
                 By [default](${docsUrl}/reference/rest/overview/date-format/),
-                the date must have the format yyyy-MM-dd'T'HH:mm:ss.SSSZ, e.g., 2013-01-23T14:42:45.000+0200." />
+                the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`." />
 
     <@lib.property
         name = "startedBy"
@@ -288,7 +288,7 @@
                 A process instance matches a nested query if it fulfills at least one of the query's predicates.
                 With multiple nested queries, a process instance must fulfill at least one predicate of each query (Conjunctive Normal Form).
                 All process instance query properties can be used except for: sorting
-                See the [User Guide](https://docs.camunda.org/manual/latest/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries." />
+                See the [User Guide](${docsUrl}/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries." />
 
     "sorting": {
       "type": "array",

@@ -157,6 +157,10 @@ public class HistoricActivityInstanceTest extends PluggableProcessEngineTestCase
     assertEquals(0, historyService.createHistoricActivityInstanceQuery().activityName("nonExistingActivityName").list().size());
     assertEquals(1, historyService.createHistoricActivityInstanceQuery().activityName("No operation").list().size());
 
+    assertEquals(0, historyService.createHistoricActivityInstanceQuery().activityNameLike("operation").list().size());
+    assertEquals(1, historyService.createHistoricActivityInstanceQuery().activityNameLike("%operation").list().size());
+    assertEquals(1, historyService.createHistoricActivityInstanceQuery().activityNameLike("%oper%").list().size());
+
     assertEquals(0, historyService.createHistoricActivityInstanceQuery().taskAssignee("nonExistingAssignee").list().size());
 
     assertEquals(0, historyService.createHistoricActivityInstanceQuery().executionId("nonExistingExecutionId").list().size());
@@ -255,6 +259,24 @@ public class HistoricActivityInstanceTest extends PluggableProcessEngineTestCase
     HistoricProcessInstance oldInstance = historyService.createHistoricProcessInstanceQuery().processDefinitionKey("calledProcess").singleResult();
 
     assertEquals(oldInstance.getId(), historicActivityInstance.getCalledProcessInstanceId());
+  }
+
+  @Deployment(resources = { "org/camunda/bpm/engine/test/history/calledProcessWaiting.bpmn20.xml",
+  "org/camunda/bpm/engine/test/history/HistoricActivityInstanceTest.testCallSimpleSubProcess.bpmn20.xml" })
+  public void testHistoricActivityInstanceCalledProcessIdWithWaitState() {
+    // given
+    runtimeService.startProcessInstanceByKey("callSimpleSubProcess");
+    ProcessInstance calledInstance = runtimeService.createProcessInstanceQuery().processDefinitionKey("calledProcess").singleResult();
+    HistoricActivityInstanceQuery activityQuery = historyService.createHistoricActivityInstanceQuery().activityId("callSubProcess");
+
+    // assume
+    assertEquals(calledInstance.getId(), activityQuery.singleResult().getCalledProcessInstanceId());
+
+    // when
+    taskService.complete(taskService.createTaskQuery().processInstanceId(calledInstance.getId()).singleResult().getId());
+
+    // then
+    assertEquals(calledInstance.getId(), activityQuery.singleResult().getCalledProcessInstanceId());
   }
 
   @Deployment
