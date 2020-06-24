@@ -280,7 +280,7 @@
     <if test="parameter.applyOrdering">
       ${orderBy}
     </if>
-    ${limitAfter}
+    ${limitAfter} FOR UPDATE
   </select>
 
   <select id="selectTopicNamesByQuery" parameterType="org.camunda.bpm.engine.impl.ExternalTaskQueryImpl" resultType="string">
